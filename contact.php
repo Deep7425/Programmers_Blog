@@ -5,23 +5,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 include 'connection.php';
 $email = $_POST['email'];
 $query = $_POST['query'];
-$member = $_POST['member'];
-$professor = $_POST['professor'];
-$coder = $_POST['coder'];
 $description = $_POST['description'];
 $exits = false;
 // Sql query to be executed
 
-$sql = "INSERT INTO  `login`.`contact` (`email`, `query`, `member`, `professor`, `coder`, `description`, `date`) 
-VALUES ( '$email', '$query', '$member', '$professor', '$coder', '$description', current_timestamp());";
+$sql = "INSERT INTO  `notes`.`contact` (`email`, `query`, `description`, `date`) 
+VALUES ( '$email', '$query', '$description', current_timestamp());";
 $result = mysqli_query($conn, $sql);
 if($result){ 
   // echo "success";
-  $insert;
+  $insert = true;
 
 }
 else{
-  $showError = "Passwords do not match";
+  $showError;
 }
 }
 ?>
@@ -48,7 +45,7 @@ else{
 <?php
   if($insert){
     echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-    <strong>Success!</strong> Your registration is completed 
+    <strong>Success!</strong> Your Query is Submited
     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
       <span aria-hidden='true'>×</span>
     </button>
@@ -56,7 +53,7 @@ else{
   }
   if($showError) {
     echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
-    <strong>Sorry!</strong> Please sign up  for the login
+    <strong>Sorry!</strong> Please do it again.
     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
       <span aria-hidden='true'>×</span>
     </button>
@@ -66,7 +63,7 @@ else{
 
     <div class="container my-4">
         <h2>Contact Us</h2>
-        <form action = "/cwd/bootstrap/php bootstrap project/contact.php" method = "POST">
+        <form action = "/cwd/bootstrap/bootstrap/contact.php" method = "POST">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
                 <input type="email" class="form-control" name = "email" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -80,40 +77,7 @@ else{
                     <option>Others</option>
                 </select>
             </div>
-            <div class="form-group row">
-                <div class="col-sm-2">Are you a Member?</div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1" name = "member">
-                        <label class="form-check-label" for="gridCheck1">
-                            Yes
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-2">Are you a professor?</div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck2" name = "professor">
-                        <label class="form-check-label" for="gridCheck2">
-                            Yes
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-2">Are you a Coder?</div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck3" name = "coder">
-                        <label class="form-check-label" for="gridCheck3">
-                            Yes
-                        </label>
-                    </div>
-                </div>
-            </div>
-
+           
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Tell us about yourself</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" name = "description" rows="3"></textarea>
@@ -125,7 +89,7 @@ else{
     </div>
 
     <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
+        
         <p>© 2020-2021 iCoder, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
     </footer>
     <!-- Optional JavaScript -->
