@@ -19,7 +19,7 @@ $exits = false;
 // Sql query to be executed
 if(($password == $cpassword) && $exits == false)
 {
-$sql = "INSERT INTO `login`.`login`(`email`, `password`) VALUES ('$email', '$password')";
+$sql = "INSERT INTO `notes`.`login`(`email`, `password`) VALUES ('$email', '$password')";
 $result = mysqli_query($conn, $sql);
 if($result){ 
   // echo "success";
@@ -112,11 +112,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </button>
         </div>
         <div class="modal-body">
-            <form action = "/cwd/bootstrap/php bootstrap project/index.php" method = "POST">
+        <form action = "/cwd/bootstrap/bootstrap/index.php" method = "POST">
     
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" name = "email"> 
+                  <input type="email" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" name = "email"> 
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
@@ -148,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </button>
         </div>
         <div class="modal-body">
-        <form action = "/cwd/bootstrap/php bootstrap project/index.php" method = "POST">
+        <form action = "/cwd/bootstrap/bootstrap/index.php" method = "POST">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="text" class="form-control" name = "email" id="exampleInputEmail1" aria-describedby="emailHelp">
