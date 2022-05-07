@@ -150,7 +150,7 @@ else{
   ?>
   <div class="container my-4">
     <h2>Add a Note to iNotes</h2>
-    <form action="/CURD/todo.php" method="POST">
+    <form action= "/cwd/bootstrap/bootstrap/todo.php" method="POST">
       <div class="form-group">
         <label for="title">Note Title</label>
         <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
